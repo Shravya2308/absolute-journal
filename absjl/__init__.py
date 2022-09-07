@@ -6,7 +6,7 @@ app.config['SECRET_KEY'] = 'dkljsakljdlksajlk'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///absjl.db'
 db = SQLAlchemy(app)
 
-from absjl.routes import login1
+from absjl.routes import login
 from absjl.routes import home
 from absjl.routes import teachers
 from absjl.routes import teachnotes

@@ -10,7 +10,7 @@ def signup():
 def signup_post():
     data = request.get_json()
     username = data['username']
-    email = data['email']
+    email_id= data['email_id']
     password = data['password']
-    print(username + "    " + email + "    " + password)
+    print(username + "    " + email_id + "    " + password)
     return data
