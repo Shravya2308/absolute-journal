@@ -14,10 +14,10 @@ def signup():
 @app.post('/signup')
 def signup_post():
     data = request.get_json()
-    email_id= data['email_id']
+    email_id= bleach.linkify(bleach.clean(data['email_id']))
     password = data['password']
-    firstname = data['firstname']
-    lastname = data['lastname']
+    firstname = bleach.linkify(bleach.clean(data['firstname']))
+    lastname = bleach.linkify(bleach.clean(data['lastname']))
     
     email  = Student.query.filter_by(email_id=email_id).first()
 
@@ -37,12 +37,3 @@ def signup_post():
         res_obj.update({"status":"ERROR"})
         res_obj.update({"error":"Email already registered with"})
         return json.dumps(res_obj)
-
-        
-
-       
-
-
-
-
-    return data
