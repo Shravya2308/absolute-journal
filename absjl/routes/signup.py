@@ -8,7 +8,7 @@ import re
 
 @app.get('/signup')
 def signup():    
-    return render_template('login.html')
+    return render_template('signup.html')
 
 
 @app.post('/signup')
