@@ -1,12 +1,12 @@
 from flask import Flask, render_template, redirect, request, session
 from absjl import app
 
-@app.get('/login')
+@app.get('/login1')
 def login():    
     return render_template('login.html')
 
 
-@app.post('/login')
+@app.post('/login1')
 def login_post():
     data = request.get_json()
     username = data['username']

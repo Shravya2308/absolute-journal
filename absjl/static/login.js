@@ -1,14 +1,15 @@
 document.getElementById("submit").addEventListener("click", function(event){
     event.preventDefault()
-    var username=document.getElementById("username").value
+    var email_id=document.getElementById("email_id").value
     var password=document.getElementById("password").value
-    localStorage.setItem("username", username);
-    submit(username,password)
+
+    localStorage.setItem("email_id", email_id);
+    submit(email_id,password)
   });
-  function submit(username,password){
+  function submit(email_id,password){
     // console.log("still yeh")
     cred={
-      username:username,
+      email_id:email_id,
       password:password
     }
     console.log(cred)
@@ -37,6 +38,14 @@ document.getElementById("submit").addEventListener("click", function(event){
       var status=document.getElementsByClassName("status")
       status[0].innerHTML=json.error;
     }else{
-      window.location= window.location.origin+"/feed";
+      window.location= window.location.origin+"/home";
     }
   }
+
+async function getData(){
+  const response = await fetch("http://127.0.0.1:5000/get_registered_students");
+  const data = await response.JSON();
+  console.log(data);
+
+}
+getData()
