@@ -58,11 +58,11 @@ def login():
     return render_template('login.html')
 
 
-@app.post('/login')
+@app.post('/login1')
 def login_post():
     data = request.get_json()
     email_id1 = data['email_id1']
-    password1 = data['password1']
+    password1 = data['password']
     print(email_id1 + "    " + password1)
 
     user = Student.query.filter_by(email_id=email_id1).first()
@@ -74,12 +74,12 @@ def login_post():
         res_obj.update({"error": "User doesnt exist so Go and <a href='/signup'>Signup</a>"})
         return json.dumps(res_obj)
     else:
-        if bcrypt.checkpw(password.encode('utf-8'),user.password):
-            session['uid'] = user.id
+        if bcrypt.checkpw(password1.encode('utf-8'),user.password):
+            session['email_id'] = user.email_id
             res_obj = {}
             res_obj.update({"status": 0})
             res_obj.update({"info": 'successful login'})
-            res_obj.update({"uid": session['uid']})
+            res_obj.update({"uid": session['email_id']})
             return json.dumps(res_obj)
         else:
             res_obj = {}

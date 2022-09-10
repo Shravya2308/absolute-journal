@@ -54,9 +54,9 @@ document.getElementById("submit1").addEventListener("click", function(event){
   var email_id1=document.getElementById("email_id1").value
   var password1=document.getElementById("password1").value
   localStorage.setItem("email_id1", email_id1);
-  submit(email_id1,password1)
+  submitlogin(email_id1,password1)
 });
-function submit(email_id1,password1){
+function submitlogin(email_id1,password1){
   // console.log("still yeh")
   cred={
     email_id1:email_id1,
@@ -86,6 +86,7 @@ function submit(email_id1,password1){
 function validateLogin(json){
   if(json.status){
     var status=document.getElementsByClassName("status")
+    console.log(json)
     status[0].innerHTML=json.error;
   }else{
     window.location= window.location.origin+"/home";

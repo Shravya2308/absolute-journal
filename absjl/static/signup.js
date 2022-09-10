@@ -4,9 +4,9 @@ document.getElementById("submit").addEventListener("click", function (event) {
   var password = document.getElementById("password").value
   var firstname = document.getElementById("firstname").value
   var lastname = document.getElementById("lastname").value
-  submit(email_id, password, firstname, lastname)
+  submitsignin(email_id, password, firstname, lastname)
 });
-function submit(email_id, password, firstname, lastname) {
+function submitsignin(email_id, password, firstname, lastname) {
 
   cred = {
     email_id: email_id,
