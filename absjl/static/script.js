@@ -20,6 +20,8 @@ document.querySelectorAll('.course-3 .box .video video').forEach(vid =>{
 
 });
 
-document.querySelector('#close-vid').onclick = () =>{
-    mainVid.classList.remove('active');
-}
+// document.querySelector('#close-vid').onclick = () =>{
+//     mainVid.classList.remove('active');
+// }
+console.log(localStorage.getItem("firstname"));
+document.getElementById("Login").innerHTML=localStorage.getItem("firstname");

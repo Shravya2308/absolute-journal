@@ -1,9 +1,11 @@
 document.getElementById("submit").addEventListener("click", function (event) {
   event.preventDefault()
+
   var email_id = document.getElementById("email_id").value
   var password = document.getElementById("password").value
   var firstname = document.getElementById("firstname").value
   var lastname = document.getElementById("lastname").value
+  localStorage.setItem("firstname", firstname);
   submitsignin(email_id, password, firstname, lastname)
 });
 function submitsignin(email_id, password, firstname, lastname) {

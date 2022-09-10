@@ -53,7 +53,7 @@ document.getElementById("submit1").addEventListener("click", function(event){
   event.preventDefault()
   var email_id1=document.getElementById("email_id1").value
   var password1=document.getElementById("password1").value
-  localStorage.setItem("email_id1", email_id1);
+  // localStorage.setItem("email_id1", email_id1);
   submitlogin(email_id1,password1)
 });
 function submitlogin(email_id1,password1){

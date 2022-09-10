@@ -54,7 +54,7 @@ import bcrypt
 @app.get('/login1')
 def login():
     if 'email_id' in session:
-        return redirect('/home')
+        return render_template('login.html')
     return render_template('login.html')
 
 
