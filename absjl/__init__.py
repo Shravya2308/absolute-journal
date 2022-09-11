@@ -18,3 +18,6 @@ from absjl.routes import about
 from absjl.routes import blog
 from absjl.routes import signup
 from absjl.routes import functionalities
+from absjl.routes import profile
+
+
