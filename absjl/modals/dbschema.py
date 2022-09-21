@@ -9,3 +9,8 @@ class Student(db.Model):
     # email_id= db.Column(db.String(15), nullable=False, unique=True)
     # password = db.Column(db.String(300), nullable=False)
     # profile_pic = db.Column(db.String(300), nullable=False)
+
+class Upload(db.Model):
+    upload_id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(50))
+    
