@@ -26,6 +26,7 @@ from absjl.routes import functionalities
 from absjl.routes import profile
 from absjl.routes import test
 from absjl.routes import logout
+from absjl.routes import discus
 
 
 
