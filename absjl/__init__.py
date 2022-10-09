@@ -27,6 +27,12 @@ from absjl.routes import profile
 from absjl.routes import test
 from absjl.routes import logout
 from absjl.routes import discus
+from absjl.routes import thread
+from absjl.routes import posts         
+from absjl.routes import upvote  
+from absjl.routes import downvote  
+from absjl.routes import upload 
+
 
 
 
