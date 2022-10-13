@@ -17,6 +17,9 @@ def test_get():
 def test():
     if request.method == 'POST':
         file = request.files['file']
+        info = request.get_json()
+        subject_name = info['name']
+        sem_no = info['sem_no']
         #file.save(secure_filename(file.filename))
         
 
@@ -25,6 +28,7 @@ def test():
             file.save(filename)
             # return 'file uploaded successfully'
             upload = Upload(filename=file.filename)
+            sem = Upload(sem_no = sem_no )                                  
             db.session.add(upload)
             db.session.commit()
             return f"Hello, {file.filename}"

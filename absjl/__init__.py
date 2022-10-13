@@ -32,6 +32,10 @@ from absjl.routes import posts
 from absjl.routes import upvote  
 from absjl.routes import downvote  
 from absjl.routes import upload 
+from absjl.routes import mynotes
+from absjl.routes import getallsubjects
+from absjl.routes import allsubjectsupload
+
 
 
 
