@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dkljsakljdlksajlk'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///absjl.db'
@@ -26,7 +27,7 @@ from absjl.routes import functionalities
 from absjl.routes import profile
 from absjl.routes import test
 from absjl.routes import logout
-from absjl.routes import discus
+from absjl.routes import discuss
 from absjl.routes import thread
 from absjl.routes import posts         
 from absjl.routes import upvote  
@@ -35,6 +36,9 @@ from absjl.routes import upload
 from absjl.routes import mynotes
 from absjl.routes import getallsubjects
 from absjl.routes import allsubjectsupload
+from absjl.routes import updatevotes
+from absjl.routes import getposts 
+
 
 
 
