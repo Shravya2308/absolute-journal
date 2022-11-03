@@ -27,7 +27,7 @@ def getmynotes_post():
             tmp_dict = {}
             # tmp_dict.update({"id":i[1].id})
             # tmp_dict.update({"name":mynotes[i].name})
-            tmp_dict.update({"year_no":mynotes[i].filename})
+            tmp_dict.update({"FILENAME":mynotes[i].filename})
             tmp_dict.update({"id":mynotes[i].Student_id})
             mynotes_list.append(tmp_dict)
         return json.dumps(mynotes_list)
