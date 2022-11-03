@@ -20,12 +20,14 @@ def test():
         # info = request.get_json()
         # subject_name = info['name']
         # sem_no = info['sem_no']
+        temp_name = secure_filename(file.filename)
         file.save(secure_filename(file.filename))
-        
+        filename = "absjl\\static\\uploads\\"+secure_filename(file.filename)
+        cmd = "echo f | xcopy /f /y "+ temp_name+" "+filename
+        print(cmd)
+        os.system(cmd)
 
         if allowed_file(file.filename) == True:
-            filename = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename))
-            file.save(filename)
             # return 'file uploaded successfully'
             email_id = session["email_id"]
             print(email_id)
