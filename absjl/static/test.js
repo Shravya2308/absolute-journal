@@ -21,9 +21,9 @@ fetch(window.location.origin + "/getallsubjects", {
     .then(json =>makeSubjectsdropdown(json))
     
 
-// sem_no.addEventListener("click",()=>{
+sem_no.addEventListener("click",()=>{
     
-// })
+})
 // charging gaya wait 2min okok baba
 
 function myFunction(){
@@ -42,4 +42,9 @@ function makeSubjectsdropdown(json){
             options.style.display="none"
             subject.append(options)
     }
+}
+
+function submit(event){
+  event.preventDefault()
+  fetch
 }

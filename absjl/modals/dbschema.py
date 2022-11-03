@@ -17,10 +17,10 @@ class Thread(db.Model):
     subject = db.Column(db.String(30),  nullable=False, unique=True)
     created = db.Column(db.String(100), nullable=False,unique=False)
     Student_id = db.Column(db.Integer,  db.ForeignKey(Student.id))
-
+    
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    subject = db.Column(db.String(30),  nullable=False, unique=True)
+    subject= db.Column(db.String(30),  nullable=False, unique=True)
     content = db.Column(db.String(1000) , nullable =False , unique = False)
     created = db.Column(db.DateTime , nullable=False,unique=False)
     Student_id = db.Column(db.Integer,  db.ForeignKey(Student.id))

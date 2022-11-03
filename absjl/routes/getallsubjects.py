@@ -12,6 +12,7 @@ def getallsubjects():
         tmp_dict = {}
         # tmp_dict.update({"id":i[1].id})
         tmp_dict.update({"name":subjects[i].name})
+        tmp_dict.update({"name":subjects[i].name})
         tmp_dict.update({"year_no":subjects[i].year_no})
         tmp_dict.update({"sem_no":subjects[i].sem_no})
         subjects_list.append(tmp_dict)    

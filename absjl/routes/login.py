@@ -75,7 +75,7 @@ def login_post():
         return json.dumps(res_obj)
     else:
         if bcrypt.checkpw(password1.encode('utf-8'),user.password):
-            session['email_id'] = user.email_id
+            session["email_id"] = user.email_id
             res_obj = {}
             res_obj.update({"status": 0})
             res_obj.update({"info": 'successful login'})

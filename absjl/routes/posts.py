@@ -17,10 +17,12 @@ def recvpost():
     else:
         data = request.get_json()
         new_content = data['content']
+        thread_id = data['thread_id']
         new_content = bleach.linkify(bleach.clean(new_content))
         current_time = str(datetime.datetime.now())
-        user = Student.query.get('Student.id')
-        print(user)
+        firstname = data['firstname']
+        current_user = db.session.query(Student).filter_by(firstname= firstname).all()
+        print(current_user[0].id)
         # temp_file_name = 'temp_posts/'+ str(session['uid'])
         # cmd = f'echo {new_content} > {temp_file_name}.txt'
         # r = os.popen(cmd)
@@ -28,7 +30,8 @@ def recvpost():
         # result = os.popen(comd)
         # a = json.loads(result.read())
         # new_content_hash = a['Hash']
-        post = Posts(content=new_content,created=current_time, Student_id= user )
+        # https://www.freecodecamp.org/news/javascript-dom-manipulation/#:~:text=In%20website%20development%2C%20DOM%20stands,very%20common%20in%20web%20development.
+        post = Posts(content=new_content,created=current_time, Student_id= current_user[0].id,Thread_id = thread_id)
         db.session.add(post)
         db.session.commit()
         res_obj = {}

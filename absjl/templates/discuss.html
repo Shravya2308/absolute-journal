@@ -5,30 +5,38 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Comment Widget</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
-	<script src="main.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="./static/main.css"/>
+	
 </head>
 <body>
-	<h1>Comment Widget</h1>
+	<h1>ABSJL</h1>
+	<div id="categories">
+		
+
+	</div>
+	<div id="posts"></div>
 	<div style="width: 100%">
-		<div style="display:flex;margin-bottom:10px;">
+		<!-- <div style="display:flex;margin-bottom:10px;">
 			<div>
 				<input type="text" placeholder="Name" id="name" class="name-handle"/>
 			</div>
 			<div>
 				<input type="text" placeholder="handle" id="handle" class="name-handle"/>
 			</div>
-		</div>
+		</div> -->
 		<div>
 			<textarea rows="5" id="comment" class="comment-box" placeholder="Join the discussion...."></textarea>
+			<input type="hidden" id="thread">
 			<div>
 				<button id="add-comment" class="add-btn">Add</button>
 			</div>
 			
 		</div>
-		<h3>Comments</h3>
+		<!-- <h3>Comments</h3>
 		<ul id="commentsList">
-		</ul>
+		</ul> -->
 	</div>
+	
+	<script src="static/discuss.js"></script>
 </body>
 </html>
