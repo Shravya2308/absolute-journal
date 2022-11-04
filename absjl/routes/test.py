@@ -20,9 +20,9 @@ def test():
         # info = request.get_json()
         # subject_name = info['name']
         # sem_no = info['sem_no']
-        temp_name = secure_filename(file.filename)
-        file.save(secure_filename(file.filename))
-        filename = "absjl\\static\\uploads\\"+secure_filename(file.filename)
+        temp_name = secure_filename(file.filename.replace(" ", ""))
+        file.save(secure_filename(file.filename.replace(" ", "")))
+        filename = "absjl\\static\\uploads\\"+secure_filename(file.filename.replace(" ",""))
         cmd = "echo f | xcopy /f /y "+ temp_name+" "+filename
         print(cmd)
         os.system(cmd)
@@ -32,7 +32,7 @@ def test():
             email_id = session["email_id"]
             print(email_id)
             current_user = db.session.query(Student).filter_by(email_id = email_id).all()
-            upload = Upload(filename=file.filename,Student_id = str(current_user[0].id), subject_id = session["sem_no"])
+            upload = Upload(filename=file.filename.replace(" ",""),Student_id = str(current_user[0].id), subject_id = session["subject_id"])
             # sem = Upload(sem_no = sem_no )                                  
             db.session.add(upload)
             db.session.commit()

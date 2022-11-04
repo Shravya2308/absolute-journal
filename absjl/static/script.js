@@ -1,27 +1,34 @@
-let navbar = document.querySelector('.header .navbar');
+fetch(window.location.origin + "/getmynotes", {
+    // Adding method type
+    method: "POST",
 
-document.querySelector('#menu-btn').onclick = () =>{
-    navbar.classList.toggle('active');
-}
+    // Adding body or contents to send
+    // body: JSON.stringify(cred),
 
-window.onscroll = () =>{
-    navbar.classList.remove('active');
-}
-
-let mainVid = document.querySelector('.main-video');
-
-document.querySelectorAll('.course-3 .box .video video').forEach(vid =>{
-
-    vid.onclick = () =>{
-        let src = vid.getAttribute('src');
-        mainVid.classList.add('active');
-        mainVid.querySelector('video').src = src;
+    // Adding headers to the request
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
     }
+  })
+    // Converting to JSON
+    .then(response => response.json())
 
-});
-
-// document.querySelector('#close-vid').onclick = () =>{
-//     mainVid.classList.remove('active');
-// }
-console.log(localStorage.getItem("firstname"));
-document.getElementById("Login").innerHTML=localStorage.getItem("firstname");
+    // Displaying results to console
+    .then(json =>drawmynotes(json))
+var uploads = document.getElementById("mynotes")
+function drawmynotes(json){
+    for(let i=0;i<json.length;i++){
+        var header = document.createElement("a")
+       
+        // header.setAttribute("style","display:none")
+        header.setAttribute("onclick","clicked(this)")
+        header.setAttribute("class","w3-text-brown uploads")
+        header.setAttribute("href","/reader?name="+json[i].FILENAME)
+        // header.innerHTML = json[i].content_posts
+        // console.log(json[i].content_posts)
+        header.innerText = json[i].FILENAME
+        uploads.appendChild(header)
+        var linebreak = document.createElement("br")
+        uploads.append(linebreak)
+    }
+}

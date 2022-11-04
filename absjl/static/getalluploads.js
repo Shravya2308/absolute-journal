@@ -21,11 +21,14 @@ function drawuploads(json){
        
         // header.setAttribute("style","display:none")
         header.setAttribute("onclick","clicked(this)")
+        header.setAttribute("class","w3-text-brown uploads")
         header.setAttribute("href","/reader?name="+json[i].uploads)
         // header.innerHTML = json[i].content_posts
         // console.log(json[i].content_posts)
         header.innerText = json[i].uploads
         uploads.appendChild(header)
+        var linebreak = document.createElement("br")
+        uploads.append(linebreak)
     }
 }
 

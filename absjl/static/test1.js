@@ -38,6 +38,7 @@ function makeSubjectsdropdown(json){
             var options = document.createElement("option")
             options.setAttribute("value",json[i].name)
             options.setAttribute("class",json[i].sem_no)
+            options.setAttribute("id",i+1)
             options.innerHTML=json[i].name
             options.style.display="none"
             subject.append(options)
@@ -47,9 +48,10 @@ function makeSubjectsdropdown(json){
 function submit(){
   console.log("Hello")
   var cred ={
-    subject_id:subject.value,
+    subject_id:subject.options[subject.selectedIndex].id,
     sem_no:sem_no.value
   }
+  console.log(cred)
   fetch(window.location.origin + "/test1", {
 
     // Adding method type

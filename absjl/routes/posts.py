@@ -4,7 +4,8 @@ from absjl.modals.dbschema import Posts, db, Subject , Student
 import json
 import bcrypt
 import bleach
-import datetime
+import random
+from datetime import datetime
 
 @app.post('/posts')
 def recvpost():
@@ -18,8 +19,9 @@ def recvpost():
         data = request.get_json()
         new_content = data['content']
         thread_id = data['thread_id']
+        print(thread_id)
         new_content = bleach.linkify(bleach.clean(new_content))
-        current_time = str(datetime.datetime.now())
+        current_time = datetime.now()
         firstname = data['firstname']
         current_user = db.session.query(Student).filter_by(firstname= firstname).all()
         print(current_user[0].id)
@@ -31,7 +33,7 @@ def recvpost():
         # a = json.loads(result.read())
         # new_content_hash = a['Hash']
         # https://www.freecodecamp.org/news/javascript-dom-manipulation/#:~:text=In%20website%20development%2C%20DOM%20stands,very%20common%20in%20web%20development.
-        post = Posts(content=new_content,created=current_time, Student_id= current_user[0].id,Thread_id = thread_id)
+        post = Posts(subject=random.randrange(0,230802),content=new_content,created=current_time, Student_id= str(current_user[0].id),Thread_id = thread_id)
         db.session.add(post)
         db.session.commit()
         res_obj = {}

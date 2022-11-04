@@ -4,7 +4,7 @@ from absjl import app
 import json
 
 
-@app.get('/get_registered_students')
+@app.post('/get_registered_students')
 def get_registered_students():
     students = Student.query.order_by(Student.id).all()
     student_list = []

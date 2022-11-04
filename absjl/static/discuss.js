@@ -2,10 +2,15 @@ console.log("hello");
 console.log("Hello")
 var cate = document.getElementById("categories")
 var posts= document.getElementById("posts")
+var content = document.getElementById("content")
+var threadid = document.getElementById("threadid")
+var makePost = document.getElementById("makePost")
+var plussign = document.getElementById("plussign")
+
 
 function putCategory(json){
     for(let i=0;i<json.length;i++){
-        var header = document.createElement("h1")
+        var header = document.createElement("div")
         header.setAttribute("id",i)
         header.setAttribute("onclick","clicked(this)")
         header.innerHTML = json[i].name
@@ -17,16 +22,16 @@ function putCategory(json){
 
 function drawposts(json){
     for(let i=0;i<json.length;i++){
-        var header = document.createElement("h1")
+        var header = document.createElement("div")
         header.setAttribute("class",json[i].thread_id)
         header.setAttribute("style","display:none")
-        header.setAttribute("onclick","clicked(this)")
+        header.setAttribute("onclick","clickedposts(this)")
+        
         header.innerHTML = json[i].content_posts
         console.log(json[i].content_posts)
         posts.appendChild(header)
     }
-} 
-
+}
 // function createposts(json){
 //     for(let i=0;i<json.length;i++){
 //         var header = document.createElement("h1")
@@ -52,7 +57,15 @@ function drawposts(json){
 function clicked(element){
     // Let us focus
     // <h1 onclick="clicked(this)"id="XYZ" class="ABC">
+    if(plussign.classList.contains("w3-hide")){
+        plussign.classList.remove("w3-hide")
+        plussign.classList.add("w3-show")
+    }else{
+        plussign.classList.add("w3-hide")
+        plussign.classList.remove("w3-show")
+    }
     console.log(parseInt(element.id) + 1)
+    threadid.value = parseInt(element.id) + 1
     // console.log(posts.children[0].getAttribute("class"))
     // go to browae and relo
     for(let i=0;i<posts.children.length;i++){
@@ -165,3 +178,43 @@ document.getElementById("add-comment").addEventListener("click", function (event
 // clicked do
 // hidden u cannot see in the UI but u can still document.getElementById
 // cliceked function ko use karo
+
+
+function plussignsubmit(){
+    if(makePost.classList.contains("w3-hide")){
+        makePost.classList.remove("w3-hide")
+        makePost.classList.add("w3-show")
+    }else{
+        makePost.classList.add("w3-hide")
+        makePost.classList.remove("w3-show")
+    }
+}
+
+function createPost(){
+    var cred ={
+        content:content.value,
+        thread_id:threadid.value,
+        firstname:localStorage.getItem("firstname")
+    }
+    console.log(cred)
+    fetch(window.location.origin + "/posts", {
+  
+      // Adding method type
+      method: "POST",
+  
+      // Adding body or contents to send
+      body: JSON.stringify(cred),
+  
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      // Converting to JSON
+      .then(response => response.json())
+  
+      // Displaying results to console
+      // .then(json => console.log(json))
+      .then(json => console.log(json))
+
+  }

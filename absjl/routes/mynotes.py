@@ -4,9 +4,9 @@ from absjl import app
 from absjl.modals.dbschema import Student,Upload ,db
 import json
 
-# @app.get('/getmynotes')
-# def getmynotes():    
-#     return render_template('mynotes.html')
+@app.get('/getmynotes')
+def getmynotes():    
+    return render_template('mynotes.html')
 
 @app.post('/getmynotes')
 def getmynotes_post():
