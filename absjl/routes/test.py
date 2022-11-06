@@ -38,7 +38,7 @@ def test():
             db.session.commit()
             return f"Hello, {file.filename}"
         else:
-            return f"MARJA KUTTE, {file.filename}"
+            return f"FILE NOT IN PDF FORMAT, {file.filename}"
         
     
 

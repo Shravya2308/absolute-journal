@@ -1,3 +1,8 @@
+// var name = document.getElementById("login").innerText(firstname)
+
+
+
+
 fetch(window.location.origin + "/getmynotes", {
     // Adding method type
     method: "POST",
