@@ -4,6 +4,10 @@ from absjl import app
 
 
 @app.get('/')
+def index():    
+    return render_template('index.html')
+    
 @app.get('/home')
 def home():    
+
     return render_template('home.html')
